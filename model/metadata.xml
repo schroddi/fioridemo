@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZDSCH_FLIGHT_SRV" xml:lang="en" sap:schema-version="0"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Flight2" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Carrid"/>
+                    <PropertyRef Name="Connid"/>
+                    <PropertyRef Name="Fldate"/>
+                </Key>
+                <Property Name="Carrid" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Airline" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Connid" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Flight Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fldate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unit="Currency" sap:label="Airfare" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Airline Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Planetype" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Plane Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Seatsmax" Type="Edm.Int32" Nullable="false" sap:label="Max. capacity econ." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Seatsocc" Type="Edm.Int32" Nullable="false" sap:label="Occupied econ." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Paymentsum" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unit="Currency" sap:label="Total" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SeatsmaxB" Type="Edm.Int32" Nullable="false" sap:label="Max. capacity bus." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SeatsoccB" Type="Edm.Int32" Nullable="false" sap:label="Occupied bus." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SeatsmaxF" Type="Edm.Int32" Nullable="false" sap:label="Max. capacity 1st" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SeatsoccF" Type="Edm.Int32" Nullable="false" sap:label="Occupied 1st" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Headerdata" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductId"/>
+                </Key>
+                <Property Name="ProductId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Product ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TypeCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Prod. Type Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Prod. Cat." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupplierId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Bus. Part. ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupplierName" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Company Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxTarifCode" Type="Edm.Byte" Nullable="false" sap:label="Prod. Tax Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MeasureUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Qty. Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="WeightMeasure" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="WeightUnit" sap:label="Wt. Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WeightUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Qty. Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="4" sap:label="Price" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Width" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="DimUnit" sap:label="Dimensions" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Depth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="DimUnit" sap:label="Dimensions" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Height" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="DimUnit" sap:label="Dimensions" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DimUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Dim. Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="ProductPicUrl" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Pic URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Flight" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Airlineid"/>
+                    <PropertyRef Name="Connectid"/>
+                    <PropertyRef Name="Flightdate"/>
+                </Key>
+                <Property Name="Airlineid" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Airline" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Airline" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Airline" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Connectid" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Flight Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Flightdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Airportfr" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Dep. airport" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Cityfrom" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Depart.city" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Airportto" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Dest. airport" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Cityto" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Arrival city" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Deptime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Departure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Arrtime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Arrival Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Arrdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Arrival date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="4" sap:label="Airfare" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Curr" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Airline Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="CurrIso" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Entity" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Param1"/>
+                </Key>
+                <Property Name="Param1" Type="Edm.Int32" Nullable="false" sap:label="Parameter 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Param2" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Parameter 2" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Param3" Type="Edm.DateTime" Precision="0" sap:label="Parameter 3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Param4" Type="Edm.Boolean" Nullable="false" sap:label="Parameter 4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Param5" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:label="Parameter 5" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Test" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Test1"/>
+                </Key>
+                <Property Name="Test1" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="P7S1Flight" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Airlineid"/>
+                    <PropertyRef Name="Airline"/>
+                    <PropertyRef Name="Connectid"/>
+                </Key>
+                <Property Name="Airlineid" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Airline" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Airline" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Airline" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Connectid" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Flight Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Flightdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Airportfr" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Dep. airport" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Cityfrom" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Depart.city" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Airportto" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Dest. airport" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Cityto" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Arrival city" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deptime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Departure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Arrtime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Arrival Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Arrdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Arrival date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="4" sap:label="Airfare" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Curr" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Airline Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="CurrIso" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZDSCH_FLIGHT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Flight2Set" EntityType="ZDSCH_FLIGHT_SRV.Flight2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HeaderdataSet" EntityType="ZDSCH_FLIGHT_SRV.Headerdata" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="FlightSet" EntityType="ZDSCH_FLIGHT_SRV.Flight" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="EntitySet" EntityType="ZDSCH_FLIGHT_SRV.Entity" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="TestCollection" EntityType="ZDSCH_FLIGHT_SRV.Test" sap:content-version="1"/>
+                <EntitySet Name="P7S1FlightSet" EntityType="ZDSCH_FLIGHT_SRV.P7S1Flight" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="./destinations/LT1/sap/opu/odata/sap/ZDSCH_FLIGHT_SRV/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link rel="latest-version" href="./destinations/LT1/sap/opu/odata/sap/ZDSCH_FLIGHT_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
